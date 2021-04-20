@@ -1,0 +1,21 @@
+body {
+  background-color: rgb(238, 238, 237);
+  padding: 2vh;
+}
+
+.content {
+  max-width: 400px;
+}
+
+.content > img {
+  height: 100px;
+}
+
+input[type="text"] {
+  max-width: 300px;
+}
+
+.author {
+  font-family: cursive;
+  font-size: smaller;
+}
