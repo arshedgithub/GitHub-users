@@ -1,15 +1,18 @@
 const username = "arshedgithub";
 
-const getUser = async () => {
-  const base = "https://api.github.com/users/";
-  const query = `${username}/repos`;
+const getUser = async (username) => {
+  const userURI = `https://api.github.com/users/${username}`;
+  const repos = "/repos";
 
-  const response = await fetch(base + query);
+  const response = await fetch(userURI);
   const data = await response.json();
 
-  return data;
+  const reposResponse = await fetch(userURI + repos);
+  const reposData = await reposResponse.json();
+
+  return { data, reposData };
 };
 
-getUser()
-  .then((data) => console.log(data))
+getUser("arshedgithub")
+  .then((data, reposData) => updateUI(data, reposData))
   .catch((err) => console.log(err));
