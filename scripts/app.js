@@ -6,12 +6,17 @@ const userInfo = document.querySelector(".userInfo");
 const repos = document.querySelector(".repos");
 const repoList = document.querySelector(".repoList");
 
+const arrRight = `<i class="fas fa-angle-right"></i>`;
+const arrDown = `<i class="fas fa-angle-down"></i>`;
+
+let arrow = arrRight;
+
 const forecast = new Forecast();
 
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  const username = form.search.value.trim();
+  let username = form.search.value.trim();
   form.reset();
 
   content.classList.add('hidden');
@@ -32,9 +37,6 @@ updateUI = (data, reposData) => {
     <h6><a href="${html_url}" target="_blank">${login}</a></h6>
     `;
 
-  const arrRight = `<i class="fas fa-angle-right"></i>`;
-  const arrDown = `<i class="fas fa-angle-down"></i>`;
-  let arrow = arrRight;
 
   repos.innerHTML = `
   <h5 class="py-4" style="cursor: pointer;">${arrow}&nbsp;&nbsp;Repositories &nbsp;&nbsp;${data.reposData.length}</h5>
@@ -49,6 +51,7 @@ updateUI = (data, reposData) => {
         repos.innerHTML = `
         <h5 class="py-4" style="cursor: pointer;">${arrow}&nbsp;&nbsp; Repositories &nbsp;&nbsp;${data.reposData.length}</h5>
         `;
+        console.log(data);
         data.reposData.map(c => {
           repos.innerHTML += `<li><a href="${c.html_url}" target="_blank">${c.name}</a></li>`;
         });
@@ -68,9 +71,7 @@ updateUI = (data, reposData) => {
 };
 
 const goToHome = () => {
-  arrow = '';
-  account.classList.add('hidden');
-  content.classList.remove('hidden');
+  window.location.reload();
 }
 
 
