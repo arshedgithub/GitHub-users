@@ -33,7 +33,7 @@ updateUI = (data, reposData) => {
 
   userInfo.innerHTML = `
     <img class="rounded-circle" style="height:200px;" src="${avatar_url}" alt="profile_picture" />
-    <h3 class="my-3">${name}</h3>
+    <h3 class="my-3">${name != null ? name : ''}</h3>
     <h6><a href="${html_url}" target="_blank">${login}</a></h6>
     `;
 
