@@ -3,12 +3,12 @@ body {
   padding: 2vh;
 }
 
-.content {
-  max-width: 400px;
-}
-
 .content > img {
   height: 100px;
+}
+
+.hidden {
+  display: none;
 }
 
 input[type="text"] {
