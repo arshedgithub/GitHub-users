@@ -19,3 +19,13 @@ input[type="text"] {
   font-family: cursive;
   font-size: smaller;
 }
+
+li {
+  list-style: none;
+  margin-left: 10vh;
+  line-height: 4.5vh;
+}
+
+li > a {
+  color: black;
+}
